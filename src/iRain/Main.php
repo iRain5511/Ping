@@ -17,18 +17,18 @@ class Main extends PluginBase implements Listener {
 
 	public function onEnable() : void {
 		$this->getLogger()->info("Plugin has been Enabled!");
+	    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+		$this->saveDefaultConfig();
 	}
 
 	public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) : bool
 	{
-		$time = time();
-		$date = date('Y-m-d');
 		if ($sender instanceof Player) {
 			switch ($cmd->getName()) {
 				case "ping":
 					$sender->sendMessage(TextFormat::RED . TextFormat::BOLD  .  "YOUR PING IS " . $sender->getPing() . "MS");
 					return true;
-			}
+	        }
 		} else {
 			//Code for console
 		}
@@ -37,7 +37,7 @@ class Main extends PluginBase implements Listener {
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
 		if($player instanceof Player) {
-		$player->getServer()->dispatchCommand($player, $this->getConfig()->get("Command"));
+		$player->getServer()->dispatchCommand($player, $this->getConfig()->get("ExecuteCommand"));
 		}
 	}
 
