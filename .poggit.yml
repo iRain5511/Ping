@@ -3,5 +3,7 @@ branches:
 - master
 projects:
   Ping:
-    path: "Main"
+    path: ""
+    fullGzip: 9
+    compressBuilds: false
 ...
