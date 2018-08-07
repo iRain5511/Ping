@@ -16,7 +16,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 class Main extends PluginBase implements Listener {
 
 	public function onEnable() : void {
-		$this->getLogger()->info("Plugin has been Enabled.");
+		$this->getLogger()->info("Plugin has been Enabled!");
 	    $this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
 	}
@@ -42,6 +42,6 @@ class Main extends PluginBase implements Listener {
 	}
 
 	public function onDisable() : void {
-		$this->getLogger()->info("Plugin has been Disabled.");
+		$this->getLogger()->info("Plugin has been Disabled!");
 	}
 }
