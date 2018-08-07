@@ -14,10 +14,9 @@ use pocketmine\command\ConsoleCommandSender;
 use pocketmine\event\player\PlayerJoinEvent;
 
 class Main extends PluginBase implements Listener {
-	public const PREFIX = TextFormat::YELLOW . "[Ping]" . TextFormat::DARK_GRAY. " ";
 
 	public function onEnable() : void {
-		$this->getLogger()->info(Main::PREFIX . "Plugin has been Enabled!");
+		$this->getLogger()->info("Plugin has been Enabled!");
 	}
 
 	public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) : bool
@@ -38,11 +37,11 @@ class Main extends PluginBase implements Listener {
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
 		if($player instanceof Player) {
-		$player->getServer()->dispatchCommand($player, $this->getConfig()->get("ExecuteCommand"));
+		$player->getServer()->dispatchCommand($player, $this->getConfig()->get("Command"));
 		}
 	}
 
 	public function onDisable() : void {
-		$this->getLogger()->info(Main::PREFIX . "Plugin has been Disabled!");
+		$this->getLogger()->info("Plugin has been Disabled!");
 	}
 }
